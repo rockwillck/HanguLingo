@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Learn Korean</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+    <div class="content">
+        <h1 id="titleHeader">LearnKorean</h1>
+        <a href="help.html">What is this?</a>
+        <br>
+        <button class="scrollDown" onclick="scrollVertical(1.4)">Let's Go!</button>
+        <h2>Pronounciation Basics</h2>
+        <p>Korean is a really easy language to learn to read.</p>
+        <p>Let's start by talking about the basic layout of a word.</p>
+        <p>Every Korean word is made up of some number of <i>syllables</i>.</p>
+        <p>And each syllable is made up of 2 or 3 sounds.</p>
+        <p>For example:</p>
+        <p>안녕</p>
+        <p>means <b>hello</b>!</p>
+        <p>It's made up of two syllables:</p>
+        <p>안 and 녕</p>
+        <p>Each syllable is three sounds:</p>
+        <p>안 = ㅇ + ㅏ + ㄴ</p>
+        <p>녕 = ㄴ + ㅕ + ㅇ</p>
+        <hr>
+        <p>Let's take a look at the second syllable:</p>
+        <p>The ㄴ makes a nn sound: like in <i>n</i>one</p>
+        <p>The ㅕ makes a yu sound: like in <i>you</i>ng</p>
+        <p>The ㅇ is special - it can make two different sounds. When it's in the bottom position, like here, it makes the ng sound: like in to<i>ngue</i></p>
+        <p>So, all together, 녕 is pronounced <i>nyung</i> (rhymes with tongue).</p>
+        <hr>
+        <p>We can also look at the first syllable:</p>
+        <p>Before, we said that the ㅇ is special. Here's why: before, it made a ng sound, but when it's here, in the top-left position, it makes <i>no</i> sound! It becomes, effectively, a placeholder.</p>
+        <p>The ㅏ makes an aa sound: like in b<i>o</i>p</p>
+        <p>The ㄴ makes, like before, an nn sound.</p>
+        <p>All together, 안 is pronounced <i>aan</i> (rhymes with lawn).</p>
+        <hr>
+        <div class="quiz" id="pronounce1">
+        </div>
+        <hr>
+    </div>
+    <div class="overlay">
+        <button id="uiMode" onclick="switchMode(this)">☼</button>
+    </div>
+    <script src="effects.js"></script>
+    <script src="quizzes.js"></script>
+</body>
+</html>

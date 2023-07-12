@@ -1,0 +1,113 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url("Ubuntu-Medium.ttf");
+}
+
+:root {
+    --theme-color:rgb(255, 255, 255);
+    --font-color:rgb(0, 0, 0);
+    --accent-color:gray;
+    --font:Ubuntu;
+}
+
+body {
+    background-color: var(--theme-color);
+    color:var(--font-color);
+
+    font-family: var(--font);
+    text-align:center;
+
+    padding:5vmin;
+
+    transition: 0.2s;
+}
+
+h1 {
+    margin-top:15vh;
+    font-size: calc(max(12vmin, 60px));
+}
+
+a {
+    text-decoration: none;
+
+    color:rgb(91, 158, 181);
+}
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: transparent;
+
+    font:var(--font);
+    color:var(--font-color);
+
+    padding:2vmin;
+
+    border:solid;
+    border-width: 1px;
+    border-radius: 2vmin;
+    border-color:var(--font-color);
+    
+    box-shadow: 0.5vmin 0.5vmin 0 var(--accent-color);
+
+    transition: 0.2s;
+    margin:1vmin
+}
+button:hover {
+    padding:2.5vmin;
+}
+button:active {
+
+    box-shadow: 0vmin 0vmin 0 gray;
+}
+
+.scrollDown {
+    margin-bottom:100vh;
+    margin-top:5vh;
+}
+
+#uiMode {
+    position:fixed;
+    right:0;
+    top:0;
+    box-shadow: 0 0 0;
+    margin:5vmin;
+    border-radius: 100vmin;
+    width:5vmin;
+    height:5vmin;
+    padding:0;
+}
+#uiMode:hover {
+    background-color: black;
+    color:white
+}
+
+i {
+    text-decoration: underline;
+}
+b {
+    color:red;
+}
+
+.quiz {
+    background-color: transparent;
+    
+    padding:2vmin;
+
+    border:solid;
+    border-width: 1px;
+    border-radius: 2vmin;
+    
+    margin:2vmin;
+}
+
+sub {
+    font-size: calc(max(3vmin, 15px));
+}
+
+.helpContent {
+    max-width:50vw;
+    margin: auto;
+    margin-top:5vh;
+}
