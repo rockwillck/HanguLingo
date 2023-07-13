@@ -14,3 +14,21 @@ function switchMode(btn) {
     document.querySelector(":root").style.setProperty("--font-color", mode ? "white" : "black");
     document.querySelector(":root").style.setProperty("--accent-color", mode ? "lightgray" : "gray");
 }
+
+
+var allLessons = new Array(document.getElementById("lessons").children.length)
+function resizeIframe() {
+    for (let iframe of document.getElementById("lessons").children) {
+        iframe.style.height = 0
+        iframe.style.width = 0
+        iframe.addEventListener("load", () => {
+            allLessons[[].indexOf.call(iframe.parentNode.children, iframe)] = (iframe.contentWindow.document.body.innerHTML)
+            if (!allLessons.includes(undefined)) {
+                allLessons.forEach((lesson) => {
+                    document.body.innerHTML += lesson
+                })
+            }
+        })
+    }
+}
+resizeIframe()

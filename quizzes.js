@@ -19,13 +19,45 @@ const quizzes = {
             "Na",
             "Ngan"
         ], 1)
-    ]
+    ],
+    "consonants":[
+        new Question("What sound does ㅊ make?", [
+            "j",
+            "ch",
+            "g"
+        ], 1),
+        new Question("What sound does ㅇ make when in the bottom?", [
+            "none",
+            "n",
+            "ng"
+        ], 2)
+    ],
+    "vowels":[
+        new Question("What sound does ㅖ make?", [
+            "yeh",
+            "o",
+            "ey"
+        ], 0),
+        new Question("Which letter makes the \"ya\" sound?", [
+            "ㅗ",
+            "ㅔ",
+            "ㅑ"
+        ], 2)
+    ],
 }
 
-for (quiz of document.getElementsByClassName("quiz")) {
-    quiz.innerHTML = `<h3>Checkup</h3>
-    <button onclick="startQuiz(this.parentNode)">Start</button>`
+var initialized = []
+function initializeQuizzes() {
+    requestAnimationFrame(initializeQuizzes)
+    for (quiz of document.getElementsByClassName("quiz")) {
+        if (!initialized.includes(quiz.id)) {
+            quiz.innerHTML = `<h3>Checkup</h3>
+            <button onclick="startQuiz(this.parentNode)">Start</button>`
+            initialized.push(quiz.id)
+        }
+    }
 }
+initializeQuizzes()
 
 function startQuiz(quiz) {
     quiz.innerHTML = ""

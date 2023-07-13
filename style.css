@@ -78,6 +78,7 @@ button:active {
     height:8vmin;
     font-size:4vmin;
     padding:0;
+    background-color: var(--theme-color);
 }
 #uiMode:hover {
     background-color: black;
@@ -111,4 +112,26 @@ sub {
     max-width:50vw;
     margin: auto;
     margin-top:5vh;
+}
+
+/* spacing */
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    border-bottom: solid;
+}
+
+th, td {
+    padding: 20px;
+    border:solid;
+}
+  
+table, thead, th, td {
+    border-width: 1px;
+    border-color:var(--font-color);
 }
