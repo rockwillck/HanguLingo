@@ -72,6 +72,32 @@ const quizzes = {
             "guh-buh-haal suh uhbs-daa-goo",
             "gah-boo-hall soo ubs-doo-gah"
         ], 0)
+    ],
+    "stacks": [
+        new Question("What sound does 응 make?", [
+            "nng",
+            "ngnng",
+            "n"
+        ], 0),
+        new Question("What sound does 국 make?", [
+            "goo",
+            "goon",
+            "goog/gook"
+        ], 2)
+    ],
+    "doubles": [
+        new Question("There are double versions of every consonant.", [
+            "True",
+            "False"
+        ], 1),
+        new Question("Doubles are just when you stutter a sound.", [
+            "True",
+            "False"
+        ], 1),
+        new Question("Doubles are sharper versions of certain consonants.", [
+            "True",
+            "False"
+        ], 0)
     ]
 }
 
