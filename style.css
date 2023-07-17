@@ -135,3 +135,22 @@ table, thead, th, td {
     border-width: 1px;
     border-color:var(--font-color);
 }
+
+.pronounciationChart {
+    width:25vmin;
+    height:25vmin;
+    margin:auto;
+}
+
+.lyrics {
+    background-color: rgb(255, 245, 227);
+    padding:2vmin;
+    border-radius: 2vmin;
+    margin:2vmin;
+    color:black;
+}
+.cite {
+    border-top: solid;
+    padding-top:2vmin;
+    border-width:1px;
+}

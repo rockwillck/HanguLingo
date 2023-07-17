@@ -20,7 +20,7 @@ const quizzes = {
             "Ngan"
         ], 1)
     ],
-    "consonants":[
+    "consonants": [
         new Question("What sound does ㅊ make?", [
             "j",
             "ch",
@@ -32,7 +32,7 @@ const quizzes = {
             "ng"
         ], 2)
     ],
-    "vowels":[
+    "vowels": [
         new Question("What sound does ㅖ make?", [
             "yeh",
             "o",
@@ -44,6 +44,35 @@ const quizzes = {
             "ㅑ"
         ], 2)
     ],
+    "pGeneralized": [
+        new Question("란", [
+            "lon",
+            "baap",
+            "laan"
+        ], 2),
+        new Question("니", [
+            "nee",
+            "naa",
+            "lo"
+        ], 0),
+        new Question("찮", [
+            "cha",
+            "chaanh",
+            "chaah"
+        ], 1)
+    ],
+    "wordsSentencesPractice": [
+        new Question("내 말 맞다면", [
+            "nee maal map-daa-mun",
+            "neh maal maj-daa-myun",
+            "naa maal mao-taa-myun"
+        ], 1),
+        new Question("거부할 수 없다고", [
+            "guh-boo-haal soo uhbs-daa-go",
+            "guh-buh-haal suh uhbs-daa-goo",
+            "gah-boo-hall soo ubs-doo-gah"
+        ], 0)
+    ]
 }
 
 var initialized = []
