@@ -1,11 +1,3 @@
-function scrollVertical(depth) {
-    window.scrollTo({
-        top:depth*window.innerHeight,
-        left:0,
-        behavior:"smooth"
-    })
-}
-
 var mode = false
 function switchMode(btn) {
     mode = !mode
@@ -16,6 +8,7 @@ function switchMode(btn) {
 }
 
 
+var latestExists = localStorage.getItem("lastLesson") != undefined
 var allLessons = new Array(document.getElementById("lessons").children.length)
 function resizeIframe() {
     for (let iframe of document.getElementById("lessons").children) {
@@ -25,10 +18,42 @@ function resizeIframe() {
             allLessons[[].indexOf.call(iframe.parentNode.children, iframe)] = (iframe.contentWindow.document.body.innerHTML)
             if (!allLessons.includes(undefined)) {
                 allLessons.forEach((lesson) => {
+                    document.body.innerHTML += `<div class="newLesson"></div>`
                     document.body.innerHTML += lesson
                 })
             }
         })
     }
+    if (latestExists) {
+        scrollToLatest()
+    }
 }
 resizeIframe()
+
+var mostBottom = localStorage.getItem("lastLesson") != undefined ? parseInt(localStorage.getItem("lastLesson")) : 0
+localStorage.setItem("lastLesson", mostBottom)
+function scrollToLatest() {
+    thing = requestAnimationFrame(scrollToLatest)
+    dividers = (document.getElementsByClassName("newLesson"))
+    if (dividers.length != 0) {
+        window.scrollTo({top:dividers[mostBottom].offsetTop, behavior:"smooth"})
+        cancelAnimationFrame(thing)
+    }
+
+}
+
+function findMostBottom() {
+    requestAnimationFrame(findMostBottom)
+    i = 0
+    for (div of document.getElementsByClassName("newLesson")) {
+        coordinate = div.offsetTop - window.scrollY
+        if (coordinate < 0) {
+            if (i > mostBottom) {
+                mostBottom = i
+                localStorage.setItem("lastLesson", mostBottom)
+            }
+        }
+        i++
+    }
+}
+findMostBottom()

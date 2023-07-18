@@ -109,32 +109,44 @@ function initializeQuizzes() {
             quiz.innerHTML = `<h3>Checkup</h3>
             <button onclick="startQuiz(this.parentNode)">Start</button>`
             initialized.push(quiz.id)
+            if (localStorage.getItem(quiz.id)) {
+                startQuiz(quiz)
+            }
         }
     }
 }
 initializeQuizzes()
-
 function startQuiz(quiz) {
     quiz.innerHTML = ""
     quizDetails = quizzes[quiz.id]
-    quizDetails.forEach((question) => {
+    questionBits = localStorage.getItem(quiz.id) ? localStorage.getItem(quiz.id).split("").map(x => x == "1" ? true : false) : Array(quizDetails.length).fill(false)
+    doneAlready = localStorage.getItem(quiz.id) != undefined
+    quizDetails.forEach((question, index) => {
         let choices = []
         question.answerChoices.forEach((choice, index) => {
             choiceBtn = document.createElement("button")
             choiceBtn.innerText = choice
+            if (doneAlready) {
+                choiceBtn.style.backgroundColor = index == question.correct ? "mediumspringgreen" : "coral"
+            }
             choices.push(choiceBtn)
         })
         questionStatement = document.createElement("p")
         questionStatement.innerText = question.question
         quiz.appendChild(questionStatement)
-        choices.forEach((choice, index) => {
+        choices.forEach((choice, choiceIndex) => {
             choice.addEventListener("click", (e) => {
-                if (index == question.correct) {
+                if (choiceIndex == question.correct) {
                     for (oneChoice of choices) {
                         oneChoice.style.backgroundColor = "coral"
                         oneChoice.disabled = true
                     }
                     choice.style.backgroundColor = "mediumspringgreen"
+                    questionBits[index] = true
+                    localStorage.setItem(quiz.id,
+                        questionBits
+                        .map(x => x ? 1 : 0)
+                        .join(""))
                 } else {
                     choice.style.backgroundColor = "coral"
                     choice.disabled = true
