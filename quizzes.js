@@ -119,6 +119,20 @@ const quizzes = {
             "sya-lyang-heh",
             "saa-lang-heh",
         ], 2)
+    ],
+    "formal": [
+        new Question("할아버지 means grandfather in Korean. How would you speak to your 할아버지?", [
+            "Formally",
+            "Informally"
+        ], 0),
+        new Question("엄마 means mother in Korean. How would you speak to your 엄마?", [
+            "Formally",
+            "Informally"
+        ], 0),
+        new Question("친구 means friend in Korean. How would you speak to your 친구?", [
+            "Formally",
+            "Informally"
+        ], 1)
     ]
 }
 

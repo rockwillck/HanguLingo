@@ -8,11 +8,13 @@ LearnKorean aims to make learning Korean a simple endeavour - something you can 
 ## Structure
 The base LearnKorean site is one static page. You scroll through lessons and stop wherever you want, then resume next time. There's no complicated page tree, no infinitely long URLs, just one long page.
 ## Roadmap
-```Lesson Count: 5```  
+```Lesson Count: 7```  
 - [x] Loading lessons from separate docs  
-- [ ] Lazy loading
-- [x] Remember last scroll coordinate
-- [ ] New quiz types
-- [ ] Mobile app
+- [x] Remember last scroll coordinate  
+- [x] Remembering quizzes  
+- [ ] Lazy loading  
+- [x] Progress bar  
+- [ ] New quiz types  
+- [ ] Mobile app  
 ## Visit Site
 [LearnKorean](https://www.rockwill.dev/LearnKorean) is live now!
