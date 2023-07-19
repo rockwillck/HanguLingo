@@ -98,6 +98,27 @@ const quizzes = {
             "True",
             "False"
         ], 0)
+    ],
+    "annyung": [
+        new Question("How do you pronounce 안녕?", [
+            "An-nung",
+            "Aan-nung",
+            "Aan-nyung"
+        ], 2)
+    ],
+    "howdydoingdare": [
+        new Question("잘 지내니?", [
+            "chal chi-neh-nee?",
+            "jal ji-neh-nee",
+            "chal ji-nee-neh"
+        ], 1)
+    ],
+    "loveydoveydee": [
+        new Question("사랑해", [
+            "saa-lan-hyeh",
+            "sya-lyang-heh",
+            "saa-lang-heh",
+        ], 2)
     ]
 }
 
