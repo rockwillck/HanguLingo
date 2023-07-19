@@ -1,10 +1,15 @@
-var mode = false
-function switchMode(btn) {
-    mode = !mode
+var mode = localStorage.getItem("mode") ? (localStorage.getItem("mode") == "dark" ? true: false) : false
+setMode(document.getElementById("uiMode"))
+function setMode(btn) {
     btn.innerText = mode ? "☾" : "☼"
     document.querySelector(":root").style.setProperty("--theme-color", mode ? "rgb(45, 44, 56)" : "white");
     document.querySelector(":root").style.setProperty("--font-color", mode ? "white" : "black");
     document.querySelector(":root").style.setProperty("--accent-color", mode ? "lightgray" : "gray");
+}
+function switchMode(btn) {
+    mode = !mode
+    localStorage.setItem("mode", mode ? "dark" : "light")
+    setMode(btn)
 }
 
 
