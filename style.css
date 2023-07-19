@@ -176,7 +176,7 @@ table, thead, th, td {
     font-size:calc(max(8px, 1.5vmin));
     transition: 0.2s;
     color:var(--font-color);
-    transform: rotate(0deg);
+    transform: rotate(30deg);
 }
 .progressCircle:active {
     background-color: var(--font-color);

@@ -65,7 +65,7 @@ function findMostBottom() {
     i = 0
     for (circle of document.getElementsByClassName("progressCircle")) {
         if (i == thisTimeMostBottom) {
-            circle.style.transform = "rotate(2deg)"
+            circle.style.transform = "rotate(0deg)"
             circle.style.width = "25vw"
             circle.innerText = document.getElementsByTagName("h2")[i].innerText
         } else {
