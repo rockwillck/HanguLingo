@@ -107,7 +107,7 @@ function initializeQuizzes() {
     for (quiz of document.getElementsByClassName("quiz")) {
         if (!initialized.includes(quiz.id)) {
             quiz.innerHTML = `<h3>Checkup</h3>
-            <button onclick="startQuiz(this.parentNode)">Start</button>`
+            <button onclick="startQuiz(this.parentNode)" class="startQuiz">Start</button>`
             initialized.push(quiz.id)
             if (localStorage.getItem(quiz.id)) {
                 startQuiz(quiz)
@@ -126,6 +126,7 @@ function startQuiz(quiz) {
         question.answerChoices.forEach((choice, index) => {
             choiceBtn = document.createElement("button")
             choiceBtn.innerText = choice
+            choiceBtn.className = "quizOption"
             if (doneAlready) {
                 choiceBtn.style.backgroundColor = index == question.correct ? "mediumspringgreen" : "coral"
             }

@@ -18,8 +18,8 @@ function resizeIframe() {
             allLessons[[].indexOf.call(iframe.parentNode.children, iframe)] = (iframe.contentWindow.document.body.innerHTML)
             if (!allLessons.includes(undefined)) {
                 allLessons.forEach((lesson) => {
-                    document.body.innerHTML += `<div class="newLesson"></div>`
-                    document.body.innerHTML += lesson
+                    document.getElementById("lessons").innerHTML += `<div class="newLesson"></div>`
+                    document.getElementById("lessons").innerHTML += lesson
                 })
             }
         })
@@ -42,18 +42,64 @@ function scrollToLatest() {
 
 }
 
+lastPassed = 0
 function findMostBottom() {
     requestAnimationFrame(findMostBottom)
     i = 0
+    thisTimeMostBottom = 0
     for (div of document.getElementsByClassName("newLesson")) {
         coordinate = div.offsetTop - window.scrollY
-        if (coordinate < 0) {
-            if (i > mostBottom) {
-                mostBottom = i
-                localStorage.setItem("lastLesson", mostBottom)
+        if (coordinate <= 0) {
+            if (i > thisTimeMostBottom) {
+                thisTimeMostBottom = i
             }
         }
         i++
     }
+
+    i = 0
+    for (circle of document.getElementsByClassName("progressCircle")) {
+        if (i == thisTimeMostBottom) {
+            circle.style.transform = "rotate(2deg)"
+            circle.style.width = "25vw"
+            circle.innerText = document.getElementsByTagName("h2")[i].innerText
+        } else {
+            circle.innerText = document.getElementsByTagName("h2")[i].innerText.split(" ").map(x => /^\p{Lu}/u.test(x) ? x[0] : "").join("")
+            circle.style.transform = ""
+            circle.style.width = ""
+        }
+        i++
+    }
+
+    if (thisTimeMostBottom > mostBottom) { 
+        mostBottom = thisTimeMostBottom
+        localStorage.setItem("lastLesson", mostBottom)
+    }
 }
 findMostBottom()
+
+function loadProgressBtns() {
+    id = requestAnimationFrame(loadProgressBtns)
+
+    if (document.getElementsByTagName("h2").length > 0) {
+        titles = []
+        i = 0
+        for (let header of document.getElementsByTagName("h2")) {
+            progressButton = document.createElement("button")
+            progressButton.className = "progressCircle"
+            progressButton.addEventListener("click", (e) => {
+                header.scrollIntoView({behavior:"smooth"})
+            })
+            titles.push(progressButton)
+            i++
+        }
+    
+        document.getElementById("progressBar").innerHTML = ""
+        titles.forEach((btn) => {
+            document.getElementById("progressBar").appendChild(btn)
+        })
+
+        cancelAnimationFrame(id)
+    }
+}
+loadProgressBtns()

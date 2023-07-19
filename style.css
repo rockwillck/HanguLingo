@@ -36,7 +36,7 @@ a:hover {
     text-decoration: underline;
 }
 
-button {
+.scrollDown, .quizOption, .startQuiz, #uiMode {
     background-color: transparent;
 
     font:var(--font);
@@ -54,10 +54,10 @@ button {
     transition: 0.2s;
     margin:1vmin
 }
-button:hover {
+.scrollDown:hover, .quizOption:hover, .startQuiz:hover {
     padding:2.5vmin;
 }
-button:active {
+.scrollDown:active, .quizOption:active, .startQuiz:active, #uiMode:active {
 
     box-shadow: 0vmin 0vmin 0 gray;
 }
@@ -153,4 +153,32 @@ table, thead, th, td {
     border-top: solid;
     padding-top:2vmin;
     border-width:1px;
+}
+
+#progressBar {
+    position:fixed;
+    left:0;
+    top:0;
+    margin:2vmin;
+}
+.progressCircle {
+    background-color: var(--theme-color);
+    font-family:var(--font);
+    border:solid;
+    border-radius: 100vmax;
+    padding:1vmin;
+    margin:1vmin;
+    width: 7vmin;
+    height:7vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:1.5vmin;
+    transition: 0.2s;
+    color:var(--font-color);
+    transform: rotate(0deg);
+}
+.progressCircle:active {
+    background-color: var(--font-color);
+    color:var(--theme-color);
 }

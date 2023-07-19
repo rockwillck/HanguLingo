@@ -11,7 +11,7 @@ The base LearnKorean site is one static page. You scroll through lessons and sto
 ```Lesson Count: 5```  
 - [x] Loading lessons from separate docs  
 - [ ] Lazy loading
-- [ ] Remember last scroll coordinate
+- [x] Remember last scroll coordinate
 - [ ] New quiz types
 - [ ] Mobile app
 ## Visit Site
