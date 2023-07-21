@@ -15,6 +15,8 @@ The base LearnKorean site is one static page. You scroll through lessons and sto
 - [ ] Lazy loading  
 - [x] Progress bar  
 - [ ] New quiz types  
-- [ ] Mobile app  
+- [x] Mobile app  
+## App
+A [preview build](https://expo.dev/accounts/rockwill/projects/learnkorean-app/builds/9cca2b6b-2dc3-446b-a025-5854d4d1a0dc) for Android is available. Your phone may mark the .apk as unsafe.
 ## Visit Site
 [LearnKorean](https://www.rockwill.dev/LearnKorean) is live now!
