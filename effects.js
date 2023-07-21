@@ -108,3 +108,18 @@ function loadProgressBtns() {
     }
 }
 loadProgressBtns()
+
+function getMobileInfo() {
+    h2s = Array.prototype.slice.call(document.getElementsByTagName("h2")).map(x => x.innerText)
+    iframes = Array.prototype.slice.call(document.getElementsByTagName("iframe")).map(x => x.src)
+    if (!(h2s.length > 0 && iframes.length > 0 && h2s.length == iframes.length)) {
+        return ""
+    } else {
+        returnStringList = []
+        for (i=0;i<iframes.length;i++) {
+            returnStringList.push(iframes[i])
+            returnStringList.push(h2s[i])
+        }
+        return returnStringList.join(",")
+    }
+}
