@@ -8,6 +8,9 @@
     --font-color:rgb(0, 0, 0);
     --accent-color:gray;
     --font:Ubuntu;
+    --correct:rgb(105, 218, 105);
+    --incorrect:rgb(255, 115, 83);
+    --progress-color:var(--correct);
 }
 
 body {
@@ -162,7 +165,7 @@ table, thead, th, td {
     margin:2vmin;
 }
 .progressCircle {
-    background-color: var(--theme-color);
+    /* background: conic-gradient(var(--progress-color) 90%, var(--theme-color) 10%); */
     font-family:var(--font);
     border:solid;
     border-radius: 100vmax;
@@ -178,7 +181,10 @@ table, thead, th, td {
     color:var(--font-color);
     transform: rotate(30deg);
 }
+.progressCircle:hover {
+    /* scale: 1.1; */
+    font-size: calc(max(12px, 2.25vmin));
+}
 .progressCircle:active {
-    background-color: var(--font-color);
     color:var(--theme-color);
 }

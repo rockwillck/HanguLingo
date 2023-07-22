@@ -155,15 +155,17 @@ function startQuiz(quiz) {
     quiz.innerHTML = ""
     quizDetails = quizzes[quiz.id]
     questionBits = localStorage.getItem(quiz.id) ? localStorage.getItem(quiz.id).split("").map(x => x == "1" ? true : false) : Array(quizDetails.length).fill(false)
-    doneAlready = localStorage.getItem(quiz.id) != undefined
+    quizDone = localStorage.getItem(quiz.id) != undefined
     quizDetails.forEach((question, index) => {
         let choices = []
-        question.answerChoices.forEach((choice, index) => {
+        doneAlready = quizDone && localStorage.getItem(quiz.id)[index] == "1"
+        question.answerChoices.forEach((choice, choiceIndex) => {
             choiceBtn = document.createElement("button")
             choiceBtn.innerText = choice
             choiceBtn.className = "quizOption"
             if (doneAlready) {
-                choiceBtn.style.backgroundColor = index == question.correct ? "mediumspringgreen" : "coral"
+                choiceBtn.style.backgroundColor = choiceIndex == question.correct ? "var(--correct)" : "var(--incorrect)"
+                choiceBtn.disabled = true
             }
             choices.push(choiceBtn)
         })
@@ -174,17 +176,17 @@ function startQuiz(quiz) {
             choice.addEventListener("click", (e) => {
                 if (choiceIndex == question.correct) {
                     for (oneChoice of choices) {
-                        oneChoice.style.backgroundColor = "coral"
+                        oneChoice.style.backgroundColor = "var(--incorrect)"
                         oneChoice.disabled = true
                     }
-                    choice.style.backgroundColor = "mediumspringgreen"
+                    choice.style.backgroundColor = "var(--correct)"
                     questionBits[index] = true
                     localStorage.setItem(quiz.id,
                         questionBits
                         .map(x => x ? 1 : 0)
                         .join(""))
                 } else {
-                    choice.style.backgroundColor = "coral"
+                    choice.style.backgroundColor = "var(--incorrect)"
                     choice.disabled = true
                 }
             })

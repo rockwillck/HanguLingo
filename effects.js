@@ -67,11 +67,13 @@ function findMostBottom() {
         if (i == thisTimeMostBottom) {
             circle.style.transform = "rotate(0deg)"
             circle.style.width = "25vw"
+            circle.style.background = `linear-gradient(to right, var(--progress-color) ${progress[i]*100}%, var(--theme-color) 0)`
             circle.innerText = document.getElementsByTagName("h2")[i].innerText
         } else {
             circle.innerText = document.getElementsByTagName("h2")[i].innerText.split(" ").map(x => /^\p{Lu}/u.test(x) ? x[0] : "").join("")
             circle.style.transform = ""
             circle.style.width = ""
+            circle.style.background = `conic-gradient(var(--progress-color) ${progress[i]*100}%, var(--theme-color) 0)`
         }
         i++
     }
@@ -122,4 +124,41 @@ function getMobileInfo() {
         }
         return returnStringList.join(",")
     }
+}
+
+function getQuizProgress() {
+    headings = document.getElementById("lessons").querySelectorAll("h2")
+    quizzesUnderHeadings = []
+    for (h2 of headings) {
+        let h2Quizzes = []
+        let currentEl = h2
+        while (currentEl.nextSibling && currentEl.nextSibling.tagName != "H2") {
+            currentEl = currentEl.nextSibling
+            if (currentEl.className == "quiz") {
+                h2Quizzes.push([localStorage.getItem(currentEl.id) ? ((localStorage.getItem(currentEl.id).match(/1/g) || []).length) : 0, quizzes[currentEl.id].length])
+            }
+        }
+        quizzesUnderHeadings.push(h2Quizzes)
+    }
+    return quizzesUnderHeadings
+}
+progress = []
+gqp = setInterval(() => {
+    progressInfo = getQuizProgress()
+    if (progressInfo.length > 0) {
+        progress = []
+        progressInfo.forEach((section) => {
+            total = 0
+            completed = 0
+            section.forEach((quiz) => {
+                total += quiz[1]
+                completed += quiz[0]
+            })
+            progress.push(completed/total)
+        })
+    }
+})
+
+function mobileGetProgress() {
+    return progress
 }
