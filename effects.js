@@ -162,3 +162,4 @@ gqp = setInterval(() => {
 function mobileGetProgress() {
     return progress
 }
+console.log(mobileGetProgress())
