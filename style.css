@@ -190,7 +190,7 @@ table, thead, th, td {
 }
 
 footer {
-    position:fixed;
+    position:sticky;
     background:var(--theme-color);
     left:0;
     bottom:0;
